@@ -1,2 +1,6 @@
 objects/
 bin/
+
+*.o
+app
+test
