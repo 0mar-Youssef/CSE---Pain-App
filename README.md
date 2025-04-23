@@ -1,7 +1,6 @@
 Update this README.md as we make commits/pushes to resepctive branches OR PLEASE message group chat when making changes.
 
-ALSO this DAMN THING IS NOT WORKING NO MORE, HUH "O"???
-MASTER PROGRAMMER???
+Uhh, does this thing work on anyone else's instance?
 
 # Assignment Parameters
 - [X] Paint brush tool
