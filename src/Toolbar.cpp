@@ -77,8 +77,14 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton = new Image(x, y + 100, 50, 50, "./assets/circle.png");
     triangleButton = new Image(x, y + 150, 50, 50, "./assets/triangle.png");
     rectangleButton = new Image(x, y + 200, 50, 50, "./assets/rectangle.png");
-    undoButton = new Image(x, y + 250, 50, 50, "./assets/undo.png");
-    clearButton = new Image(x, y + 300, 50, 50, "./assets/clear.png");
+    polygonButton = new Image(x, y + 250, 50, 50, "./assets/polygon.png");
+    undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
+    clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
+    minusButton = new Image(x, y + 400, 50, 50, "./assets/minus.png");
+    plusButton = new Image(x, y + 450, 50, 50, "./assets/plus.png");
+    bringToFrontButton = new Image(x, y + 500, 50, 50, "./assets/bring-to-front/png");
+    sendToBackButton = new Image(x, y + 550, 50, 50, "./assets/send-to-back.png");
+    mouseButton = new Image(x, y + 600, 50, 50, "./assets/mouse.png");
 
     tool = PENCIL;
     action = NONE;

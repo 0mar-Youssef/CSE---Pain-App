@@ -10,6 +10,7 @@ class Toolbar : public bobcat::Group {
     bobcat::Image* circleButton;
     bobcat::Image* triangleButton;
     bobcat::Image* rectangleButton;
+    bobcat::Image* polygonButton;
     bobcat::Image* undoButton;
     bobcat::Image* clearButton;
     bobcat::Image* minusButton;
