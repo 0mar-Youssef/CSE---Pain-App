@@ -1,10 +1,7 @@
 Update this README.md as we make commits/pushes to resepctive branches OR PLEASE message group chat when making changes.
 
-Uhh, does this thing work on anyone else's instance?
-
 # Assignment Parameters
 - [X] Paint brush tool
-    -   SCRIBBLE correctly implemented in JULIUS branch
 - [X] Eraser tool
 - [X] Clear screen tool
 - [X] RGB color picker
