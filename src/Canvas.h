@@ -11,6 +11,7 @@
 
 class Canvas : public bobcat::Canvas_ {
     std::vector<Shape*> shapes;
+    Scribble* curr;
 
 public:
     Canvas(int x, int y, int w, int h);
@@ -20,6 +21,12 @@ public:
     void addRectangle(float x, float y, float r, float g, float b);
 
     void addCircle(float x, float y, float r, float g, float b);
+
+    void startScribble();
+
+    void updateScribble(float x, float y, float r, float g, float b, int size);
+
+    void endScribble();
 
     void clear();
 
