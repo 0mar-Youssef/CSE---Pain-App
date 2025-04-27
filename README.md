@@ -5,8 +5,9 @@ Update this README.md as we make commits/pushes to resepctive branches OR PLEASE
 - [X] Eraser tool
 - [X] Clear screen tool
 - [X] RGB color picker
-- [ ] 4 shape tools
-    - Halfway done. CIRCLE and RECTANGLE are currently implemented
+- [X] 4 shape tools
+    - POLYGON drawed is tilted slightly?
+    - Edit Polygon.h .draw() function to draw flat?
 - [ ] Selector tool
 - [ ] Resize selected shape
 - [ ] Change color of selected shape/ scribble

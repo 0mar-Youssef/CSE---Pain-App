@@ -14,11 +14,9 @@ class Polygon : public Shape{
 
 public:
     Polygon();
-    Polygon(float x, float y, int sides, float length, float r, float g, float b);
+    Polygon(float x, float y, float r, float g, float b);
 
     void draw();
-
-    friend struct AppTest;
 };
 
 #endif

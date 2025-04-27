@@ -7,6 +7,7 @@ void Toolbar::deselectAllTools() {
     circleButton->color(FL_BACKGROUND_COLOR);
     triangleButton->color(FL_BACKGROUND_COLOR);
     rectangleButton->color(FL_BACKGROUND_COLOR);
+    polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
 }
 
@@ -25,6 +26,9 @@ void Toolbar::visualizeSelectedTool() {
     }
     else if (tool == RECTANGLE) {
         rectangleButton->color(FL_WHITE);
+    }\
+    else if (tool == POLYGON) {
+        polygonButton->color(FL_WHITE);
     }
 }
 
@@ -47,6 +51,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == rectangleButton) {
         tool = RECTANGLE;
+    }
+    else if (sender == polygonButton) {
+        tool = POLYGON;
     }
     else if (sender == undoButton) {
         action = UNDO;
@@ -77,8 +84,9 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton = new Image(x, y + 100, 50, 50, "./assets/circle.png");
     triangleButton = new Image(x, y + 150, 50, 50, "./assets/triangle.png");
     rectangleButton = new Image(x, y + 200, 50, 50, "./assets/rectangle.png");
-    undoButton = new Image(x, y + 250, 50, 50, "./assets/undo.png");
-    clearButton = new Image(x, y + 300, 50, 50, "./assets/clear.png");
+    polygonButton = new Image(x, y + 250, 50, 50, "./assets/polygon.png");
+    undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
+    clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
 
     tool = PENCIL;
     action = NONE;
@@ -88,6 +96,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton->box(FL_BORDER_BOX);
     triangleButton->box(FL_BORDER_BOX);
     rectangleButton->box(FL_BORDER_BOX);
+    polygonButton->box(FL_BORDER_BOX);
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
 
@@ -98,6 +107,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(circleButton, Toolbar::onClick);
     ON_CLICK(triangleButton, Toolbar::onClick);
     ON_CLICK(rectangleButton, Toolbar::onClick);
+    ON_CLICK(polygonButton, Toolbar::onClick);
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
 }

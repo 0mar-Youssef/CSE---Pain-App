@@ -10,13 +10,13 @@ Polygon::Polygon() {
     r = 0.0;
     g = 0.0;
     b = 0.0;
-}
+} 
 
-Polygon::Polygon(float x, float y, int sides, float length, float r, float g, float b) {
+Polygon::Polygon(float x, float y, float r, float g, float b) {
     this->x = x;
     this->y = y;
-    this->sides = sides;
-    this->length = length;
+    sides = 5;
+    length = 0.225;
     this->r = r;
     this->g = g;
     this->b = b;

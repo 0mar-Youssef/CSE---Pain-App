@@ -6,6 +6,8 @@
 #include "Point.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Triangle.h"
+#include "Polygon.h"
 #include "Shape.h"
 #include "Scribble.h"
 
@@ -21,6 +23,10 @@ public:
     void addRectangle(float x, float y, float r, float g, float b);
 
     void addCircle(float x, float y, float r, float g, float b);
+
+    void addTriangle(float x, float y, float r, float g, float b);
+
+    void addPolygon(float x, float y, float r, float g, float b);
 
     void startScribble();
 
