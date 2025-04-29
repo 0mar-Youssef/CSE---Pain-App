@@ -49,6 +49,9 @@ void Canvas::clear() {
         delete shapes[i];
     }
     shapes.clear();
+    
+
+
 }
 
 void Canvas::undo(){
@@ -66,4 +69,23 @@ void Canvas::render() {
     if (curr) {
         curr->draw();
     }
+}
+
+Shape* Canvas::getSelectedShape(float mx, float my) {
+    Shape* selectedShape = nullptr;
+
+    for (unsigned int i = 0; i < shapes.size(); i++) {
+        // ask every shape if we clicked on it
+        if (shapes[i]->contains(mx, my)) {
+            std::cout << "Clicked on shape[" << i << "]" << std::endl;
+            selectedShape = shapes[i];
+            break;
+        }
+    }
+
+    if (selectedShape == nullptr) {
+        std::cout << "No selected shape" << std::endl;
+    }
+
+    return selectedShape;
 }

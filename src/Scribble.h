@@ -15,5 +15,8 @@ public:
     void draw();
 
     ~Scribble();
+
+    bool contains(float mx, float my);
+    void move(float dx, float dy);
 };
 #endif

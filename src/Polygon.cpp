@@ -41,3 +41,13 @@ void Polygon::draw() {
         }
     glEnd();
 }
+bool Polygon::contains(float mx, float my) {
+    float dx = mx - x;
+    float dy = my - y;
+    return sqrt(dx * dx + dy * dy) <= length;
+}
+
+void Polygon::move(float dx, float dy) {
+    x += dx;
+    y += dy;
+}

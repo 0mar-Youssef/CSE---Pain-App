@@ -39,6 +39,8 @@ public:
     void undo();
 
     void render();
+
+    Shape* getSelectedShape(float mx, float my);
 };
 
 #endif

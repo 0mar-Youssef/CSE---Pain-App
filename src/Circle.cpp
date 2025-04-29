@@ -31,3 +31,14 @@ void Circle::draw() {
         }
     glEnd();
 }
+
+bool Circle::contains(float mx, float my) {
+    float dx = mx - x;
+    float dy = my - y;
+    return sqrt(dx * dx + dy * dy) <= radius;
+}
+
+void Circle::move(float dx, float dy) {
+    x += dx;
+    y += dy;
+}

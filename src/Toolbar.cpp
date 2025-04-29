@@ -9,6 +9,7 @@ void Toolbar::deselectAllTools() {
     rectangleButton->color(FL_BACKGROUND_COLOR);
     polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
+    mouseButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
@@ -30,6 +31,9 @@ void Toolbar::visualizeSelectedTool() {
     else if (tool == POLYGON) {
         polygonButton->color(FL_WHITE);
     }
+    else if (tool == MOUSE) {
+        mouseButton->color(FL_WHITE);
+    }
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -39,6 +43,7 @@ void Toolbar::onClick(bobcat::Widget* sender) {
 
     if (sender == pencilButton) {
         tool = PENCIL;
+        std::cout << "Pencil" << std::endl;
     }
     else if (sender == eraserButton) {
         tool = ERASER;
@@ -60,6 +65,10 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == clearButton) {
         action = CLEAR;
+    }
+    else if (sender == mouseButton) {
+        tool = MOUSE;
+        std::cout << "Mouse tool" << std::endl;
     }
 
     if (onChangeCb) {
@@ -87,7 +96,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     polygonButton = new Image(x, y + 250, 50, 50, "./assets/polygon.png");
     undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
     clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
-
+    mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
+    
     tool = PENCIL;
     action = NONE;
 
@@ -99,6 +109,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     polygonButton->box(FL_BORDER_BOX);
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
+    mouseButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -110,4 +121,5 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(polygonButton, Toolbar::onClick);
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
+    ON_CLICK(mouseButton, Toolbar::onClick);
 }

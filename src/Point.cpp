@@ -57,3 +57,12 @@ float Point::getB() const {
 int Point::getSize() const {
     return size;
 }
+
+bool Point::contains(float mx, float my) {
+    return false;
+}
+
+void Point::move(float dx, float dy) {
+    x += dx;
+    y += dy;
+}

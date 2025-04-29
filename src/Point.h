@@ -25,6 +25,10 @@ public:
     float getG() const;
     float getB() const;
     int getSize() const;
+
+    bool contains(float mx, float my);
+
+    void move(float dx, float dy);
 };
 
 #endif
