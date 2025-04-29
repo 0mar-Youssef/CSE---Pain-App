@@ -34,18 +34,20 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
         canvas->redraw();
     }
     else if (tool == MOUSE) {
-        Shape* selectedShape = canvas->getSelectedShape(mx, my);
+        selectedShape = canvas->getSelectedShape(mx, my);
         if (selectedShape) {
-            dragStartX= mx;
+            dragStartX = mx;
             dragStartY = my;
             std::cout << "Selected shape at (" << mx << ", " << my << ")" << std::endl;
-
+        } else {
+            std::cout << "No shape selected" << std::endl;
         }
     }
 
 }
 
 void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
+    std::cout << "Dragging to " << mx << my << std::endl;
     TOOL tool = toolbar->getTool();
     Color color = colorSelector->getColor();
 
@@ -58,8 +60,10 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
         canvas->redraw();
     }
     else if (tool == MOUSE && selectedShape) {
+        std::cout << "Moving shape?";
         float dx = mx - dragStartX;
         float dy = my - dragStartY;
+        std::cout << "Moving by " << dx << ", " << dy << std::endl;
         selectedShape->move(dx, dy);
         dragStartX = mx;
         dragStartY = my;
@@ -69,9 +73,7 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 
 void Application::onCanvasMouseUp(bobcat::Widget* sender, float mx, float my) {
     canvas->endScribble();
-    if (toolbar->getTool() == MOUSE) {
-        selectedShape = nullptr;
-    }
+    selectedShape = nullptr;
 }
 
 void Application::onToolbarChange(bobcat::Widget* sender) {

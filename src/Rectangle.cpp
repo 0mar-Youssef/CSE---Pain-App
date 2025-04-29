@@ -1,5 +1,6 @@
 #include "Rectangle.h"
 #include <GL/freeglut.h>
+#include <iostream>
 
 Rectangle::Rectangle() {
     x = 0.0;
@@ -39,4 +40,5 @@ bool Rectangle::contains(float mx, float my) {
 void Rectangle::move(float dx, float dy) {
     x += dx;
     y += dy;
+    std::cout << "Moved to " << x << y << std::endl;
 }

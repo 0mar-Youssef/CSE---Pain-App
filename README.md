@@ -6,7 +6,7 @@ Update this README.md as we make commits/pushes to resepctive branches OR PLEASE
 - [X] Clear screen tool
 - [X] RGB color picker
 - [X] 4 shape tools
-    - POLYGON drawed is tilted slightly?
+    - POLYGON drawn is tilted slightly?
     - Edit Polygon.h .draw() function to draw flat?
 - [X] Selector tool
 - [ ] Resize selected shape
