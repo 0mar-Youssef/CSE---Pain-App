@@ -15,6 +15,7 @@ public:
     Circle();
     Circle(float x, float y, float r, float g, float b);
     void draw();
+    bool contains(float mx, float my);
 };
 
 #endif

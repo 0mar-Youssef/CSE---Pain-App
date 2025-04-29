@@ -31,3 +31,12 @@ void Rectangle::draw() {
         glVertex2f(x - width/2, y - height/2);
     glEnd();
 }
+
+bool Rectangle::contains(float mx, float my) {
+    if (mx >= mx - width/2 && mx <= x + width/2 && my <= y + height/2 && my >= y - height/2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

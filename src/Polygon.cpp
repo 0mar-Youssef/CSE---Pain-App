@@ -32,3 +32,7 @@ void Polygon::draw() {
         }
     glEnd();
 }
+
+bool Polygon::contains(float mx, float my) {
+    return false;
+}

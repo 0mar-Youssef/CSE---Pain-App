@@ -18,6 +18,7 @@ public:
     Point(float x, float y, float r, float g, float b, int size);
 
     void draw();
+    bool contains(float mx, float my);
 
     float getX() const;
     float getY() const;

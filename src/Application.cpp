@@ -33,6 +33,9 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
         canvas->addPolygon(mx, my, color.getR(), color.getG(), color.getB());
         canvas->redraw();
     }
+    else if (tool == MOUSE) {
+        selectedShape = canvas->getSelectedShape(mx, my);
+    }
 
 }
 
@@ -67,11 +70,22 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     }
 }
 
+void Application::onColorSelectorChange(bobcat::Widget* sender) {
+    Color color = colorSelector->getColor();
+    
+    if (selectedShape) {
+        cout << "CHANGE COLOR" << endl;
+        selectedShape->setColor(color.getR(), color.getG(), color.getB());
+        canvas->redraw();
+    }
+}
+
+
 Application::Application() {
     window = new Window(100, 100, 400, 400, "Pain App");
 
-    toolbar = new Toolbar(0, 0, 50, 350);
-    canvas = new Canvas(50, 0, 350, 350);
+    toolbar = new Toolbar(0, 0, 50, 450);
+    canvas = new Canvas(50, 0, 350, 450);
     colorSelector = new ColorSelector(50, 350, 350, 50);
     colorSelector->box(FL_BORDER_BOX);
 

@@ -1,4 +1,23 @@
-Omar Youssef
+Group Name
+----------
+
+[The name of the group]
+
+Members
+-------
+
+[Omar Youssef - 0mar-Youssef]
+[Julius Vocal - Zabil-Bin27]
+[David Zhao - github username]
+[Jeevan Johnson - github username]
+
+Designated Submitter
+--------------------
+
 Julius Vocal
-David LASTNAME
-Jeevan LASTNAME
+
+
+Github Repo Link
+--------------------
+
+https://github.com/0mar-Youssef/CSE---Pain-App.git

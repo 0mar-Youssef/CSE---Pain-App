@@ -67,3 +67,21 @@ void Canvas::render() {
         curr->draw();
     }
 }
+
+Shape* Canvas::getSelectedShape(float mx, float my) {
+    Shape* selectedShape = nullptr;
+
+    for (unsigned int i = shapes.size() - 1; i != 0; i--) {
+        if (shapes[i]->contains(mx, my)) {
+            // std::cout << "Clicked on shape[" << i << "]" << "\n";
+            selectedShape = shapes[i];
+            break;
+        }
+    }
+
+    if (selectedShape == nullptr) {
+        // std::cout << "No selected shape" << "\n";
+    }
+
+    return selectedShape;
+}

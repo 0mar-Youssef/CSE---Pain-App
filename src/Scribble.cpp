@@ -10,6 +10,10 @@ void Scribble::draw(){
     }
 }
 
+bool Scribble::contains(float mx, float my) {
+    return false;
+}
+
 Scribble::~Scribble(){
     for (unsigned int i = 0; i < points.size(); i++){
         delete points[i];

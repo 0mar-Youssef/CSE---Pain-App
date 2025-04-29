@@ -6,11 +6,19 @@
 
 // Abstract Data Type
 class Shape{
+    float r, g, b;
 
 public:
     // This function is now pure virtual
     virtual void draw() = 0;
 
+    virtual bool contains(float mx, float my) = 0;
+
+    void setColor(float r, float g, float b) {
+        this->r = r;
+        this->g = g;
+        this->b = b;
+    };
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type
 

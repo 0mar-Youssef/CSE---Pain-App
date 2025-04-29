@@ -34,6 +34,10 @@ void Point::draw() {
     glEnd();
 }
 
+bool contains(float mx, float my) {
+    return false;
+}
+
 float Point::getX() const {
     return x;
 }

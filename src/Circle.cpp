@@ -31,3 +31,12 @@ void Circle::draw() {
         }
     glEnd();
 }
+
+bool Circle::contains(float mx, float my) {
+    if (mx >= mx - radius && mx <= x + radius && my <= y + radius && my >= y - radius) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
