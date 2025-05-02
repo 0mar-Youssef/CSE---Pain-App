@@ -17,12 +17,12 @@ Scribble::~Scribble(){
     points.clear();
 }
 
-bool Scribble::contains(float mx, float my) {
-    return false;
-}
 
 void Scribble::move(float dx, float dy) {
-    for (unsigned int i = 0; i < points.size(); i++) {
-        points[i]->move(dx, dy);
-    }
+    x += dx;
+    y += dy;
+}
+
+bool Scribble::contains(float mx, float my) {
+    return mx >= x - 5.0f && mx <= x + 5.0f && my >= y - 5.0f && my <= y + 5.0f;
 }
