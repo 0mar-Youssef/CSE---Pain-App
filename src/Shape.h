@@ -15,6 +15,8 @@ public:
 
     virtual void move(float dx, float dy) = 0;
 
+    virtual void resize(float mx, float my) = 0;
+
 
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type

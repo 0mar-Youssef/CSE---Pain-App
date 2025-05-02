@@ -42,3 +42,16 @@ void Rectangle::move(float dx, float dy) {
     y += dy;
     std::cout << "Moved to " << x << y << std::endl;
 }
+
+void Rectangle::resize(float mx, float my) {
+    float dx = std::abs(mx-x);
+    float dy = std::abs(my-y);
+
+    float newWidth = 2.0f * dx;
+    float newHeight = 2.0f * dy;
+
+    if (newWidth > 0.01f && newHeight > 0.01f) {
+        width = newWidth;
+        height = newHeight;
+    }
+};

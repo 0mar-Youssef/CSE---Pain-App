@@ -26,3 +26,7 @@ void Scribble::move(float dx, float dy) {
         points[i]->move(dx, dy);
     }
 }
+
+void Scribble::resize (float mx, float my) {
+    return;
+}

@@ -51,3 +51,13 @@ void Polygon::move(float dx, float dy) {
     x += dx;
     y += dy;
 }
+
+void Polygon::resize(float mx, float my) {
+    float dx = mx - x;
+    float dy = my - y;
+    float newLength = sqrt(dx * dx + dy * dy);
+    if (newLength > 0.01f) { // avoid zero raidus by telling program to treat 0.01f as a float not a double cause
+                             // raidus is a float
+        length = newLength;
+    }
+}

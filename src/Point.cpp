@@ -66,3 +66,7 @@ void Point::move(float dx, float dy) {
     x += dx;
     y += dy;
 }
+
+void Point::resize(float mx, float my) {
+    return;
+}
