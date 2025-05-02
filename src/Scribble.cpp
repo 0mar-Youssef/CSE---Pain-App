@@ -24,5 +24,5 @@ void Scribble::move(float dx, float dy) {
 }
 
 bool Scribble::contains(float mx, float my) {
-    return mx >= x - 5.0f && mx <= x + 5.0f && my >= y - 5.0f && my <= y + 5.0f;
+    return false;
 }
