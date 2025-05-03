@@ -31,15 +31,7 @@ void Triangle::draw() {
     glEnd();
 }
 bool Triangle::contains(float mx, float my) {
-    float x1 = x - base/2, y1 = y - height/2;
-    float x2 = x, y2 = y + height/2;
-    float x3 = x + base/2, y3 = y - height/2;
-
-    float denom = ((y2 - y3)*(x1 - x3) + (x3 - x2)*(y1 - y3));
-    float a = ((y2 - y3)*(mx - x3) + (x3 - x2)*(my - y3)) / denom;
-    float b = ((y3 - y1)*(mx - x3) + (x1 - x3)*(my - y3)) / denom;
-    float c = 1 - a - b;
-    return a >= 0 && b >= 0 && c >= 0;
+   return mx >= x - base/2 && mx <= x + height/2 && my >= y - height/2 && my <= y + height/2;
 }
 
 void Triangle::move(float dx, float dy){

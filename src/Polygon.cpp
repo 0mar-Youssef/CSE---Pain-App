@@ -42,9 +42,7 @@ void Polygon::draw() {
     glEnd();
 }
 bool Polygon::contains(float mx, float my) {
-    float dx = mx - x;
-    float dy = my - y;
-    return sqrt(dx * dx + dy * dy) <= length;
+    return mx >= x - sides/2 && mx <= x + sides/2 && my >= y - length/2 && my <= y + length/2;
 }
 
 void Polygon::move(float dx, float dy) {
