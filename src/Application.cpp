@@ -43,6 +43,9 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
             std::cout << "No shape selected" << std::endl;
         }
     }
+    else if (tool == RESIZE) {
+        selectedShape = canvas->getSelectedShape(mx, my);
+    }
 
 }
 
@@ -68,6 +71,10 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
         dragStartX = mx;
         dragStartY = my;
         canvas->redraw();
+    } else if (tool == RESIZE) {
+        selectedShape->resize(mx, my);
+        canvas->redraw();
+        
     }
 }
 
@@ -90,10 +97,10 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(100, 100, 400, 450, "Pain App");
+    window = new Window(100, 100, 400, 500, "Pain App");
 
-    toolbar = new Toolbar(0, 0, 50, 450);
-    canvas = new Canvas(50, 0, 350, 400);
+    toolbar = new Toolbar(0, 0, 50, 500);
+    canvas = new Canvas(50, 0, 350, 450);
     colorSelector = new ColorSelector(50, 350, 450, 50);
     colorSelector->box(FL_BORDER_BOX);
 

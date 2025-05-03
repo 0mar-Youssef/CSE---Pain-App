@@ -9,7 +9,7 @@ Update this README.md as we make commits/pushes to resepctive branches OR PLEASE
     - POLYGON drawn is tilted slightly?
     - Edit Polygon.h .draw() function to draw flat?
 - [X] Selector tool
-- [ ] Resize selected shape
+- [X] Resize selected shape
 - [ ] Change color of selected shape/ scribble
 - [X] Move selected shape/scribble by dragging
 - [ ] Bring selected shape/scribble to the front

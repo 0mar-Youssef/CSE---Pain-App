@@ -38,3 +38,16 @@ void Triangle::move(float dx, float dy){
     x += dx;
     y += dy;
 }
+
+void Triangle::resize(float mx, float my) {
+    float dx = std::abs(mx-x);
+    float dy = std::abs(my-y);
+
+    float newBase = 2.0f * dx;
+    float newHeight = 2.0f * dy;
+
+    if (newBase > 0.01f && newHeight > 0.01f) {
+        base = newBase;
+        height = newHeight;
+    }
+}

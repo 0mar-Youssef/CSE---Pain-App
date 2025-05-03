@@ -19,8 +19,14 @@ Scribble::~Scribble(){
 
 
 void Scribble::move(float dx, float dy) {
-    x += dx;
-    y += dy;
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->move(dx, dy);
+    }
+}
+
+void Scribble::resize (float mx, float my) {
+    x += mx;
+    y += my;
 }
 
 bool Scribble::contains(float mx, float my) {

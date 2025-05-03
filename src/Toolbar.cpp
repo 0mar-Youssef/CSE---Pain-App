@@ -1,4 +1,7 @@
 #include "Toolbar.h"
+#include "Enums.h"
+#include <FL/Enumerations.H>
+#include <bobcat_ui/bobcat_ui.h>
 using namespace bobcat;
 
 void Toolbar::deselectAllTools() {
@@ -10,6 +13,7 @@ void Toolbar::deselectAllTools() {
     polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
     mouseButton->color(FL_BACKGROUND_COLOR);
+    resizeButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
@@ -27,13 +31,16 @@ void Toolbar::visualizeSelectedTool() {
     }
     else if (tool == RECTANGLE) {
         rectangleButton->color(FL_WHITE);
-    }\
+    }
     else if (tool == POLYGON) {
         polygonButton->color(FL_WHITE);
     }
     else if (tool == MOUSE) {
         mouseButton->color(FL_WHITE);
     }
+    else if (tool == RESIZE) {
+        resizeButton->color(FL_WHITE);
+    } 
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -69,6 +76,8 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == mouseButton) {
         tool = MOUSE;
         std::cout << "Mouse tool" << std::endl;
+    } else if (sender == resizeButton) {
+        tool = RESIZE;
     }
 
     if (onChangeCb) {
@@ -97,6 +106,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
     clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
     mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
+    resizeButton = new Image(x, y + 450, 50, 50, "./assets/resize.png");
     
     tool = PENCIL;
     action = NONE;
@@ -110,6 +120,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
     mouseButton->box(FL_BORDER_BOX);
+    resizeButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -122,4 +133,5 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
+    ON_CLICK(resizeButton, Toolbar::onClick);
 }
