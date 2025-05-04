@@ -1,4 +1,19 @@
-Omar Youssef - 0mar-Youssef
+Group Name
+----------
+
+The Pain App Devs
+
+Members
+-------
+
+[Omar Youssef - 0mar-Youssef]
+[Julius Vocal - Zabil-Bin27]
+[David Zhao - davidtubehd]
+[Jeevan Johnson - jeevanjohnson]
+
+Designated Submitter
+--------------------
+
 Julius Vocal
 David LASTNAME
 Jeevan Johnson
