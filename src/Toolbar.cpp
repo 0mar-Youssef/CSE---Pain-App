@@ -81,6 +81,12 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == minusButton) {
         action = MINUS;
     }
+    else if (sender == bringToFrontButton) {
+        action = UP;
+    }
+    else if (sender == sendToBackButton) {
+        action = DOWN;
+    }
 
     if (onChangeCb) {
         onChangeCb(this);
@@ -111,8 +117,9 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     // resizeButton = new Image(x, y + 450, 50, 50, "./assets/resize.png");
     plusButton = new Image(x, y + 450, 50, 50, "./assets/plus.png");
     minusButton = new Image(x, y + 500, 50, 50, "./assets/minus.png");
-
-
+    bringToFrontButton = new Image(x, y + 550, 50, 50, "./assets/bring-to-front.png");
+    sendToBackButton = new Image(x, y + 600, 50, 50, "./assets/send-to-back.png");
+    
     tool = PENCIL;
     action = NONE;
 
@@ -128,6 +135,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     // resizeButton->box(FL_BORDER_BOX);
     plusButton->box(FL_BORDER_BOX);
     minusButton->box(FL_BORDER_BOX);
+    bringToFrontButton->box(FL_BORDER_BOX);
+    sendToBackButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -143,4 +152,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(plusButton, Toolbar::onClick);
     ON_CLICK(minusButton, Toolbar::onClick);
     // ON_CLICK(resizeButton, Toolbar::onClick);
+    ON_CLICK(sendToBackButton, Toolbar::onClick);
+    ON_CLICK(bringToFrontButton, Toolbar::onClick);
 }

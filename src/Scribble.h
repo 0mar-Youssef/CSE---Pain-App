@@ -10,6 +10,9 @@ class Scribble: public Shape {
     float x;
     float y;
 
+    float length;
+    float width;
+
 public:
 
     void addPoint(float x, float y, float r, float g, float b, int size);

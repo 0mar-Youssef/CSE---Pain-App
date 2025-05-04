@@ -12,5 +12,5 @@ Update this README.md as we make commits/pushes to resepctive branches OR PLEASE
 - [X] Resize selected shape
 - [X] Change color of selected shape/ scribble
 - [X] Move selected shape/scribble by dragging
-- [ ] Bring selected shape/scribble to the front
-- [ ] Send selected shape/scribble to the back
+- [X] Bring selected shape/scribble to the front
+- [X] Send selected shape/scribble to the back

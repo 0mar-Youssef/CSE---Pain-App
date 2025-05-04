@@ -5,8 +5,11 @@ void Scribble::addPoint(float x, float y, float r, float g, float b, int size){
 }
 
 void Scribble::draw(){
+
     for (unsigned int i = 0; i < points.size(); i++){
         points[i]->draw();
+
+
     }
 }
 
@@ -33,10 +36,5 @@ void Scribble::decreaseSize() {
 
 bool Scribble::contains(float mx, float my) {
 
-    for (unsigned int i = 0; i < points.size(); i++) {
-        if (mx == points[i]->getX() && my == points[i]->getY()) {
-            return false;
-        }
-    }
-    return true;
+    
 }

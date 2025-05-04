@@ -41,6 +41,10 @@ public:
     void render();
 
     Shape* getSelectedShape(float mx, float my);
+
+    void sendToBack(Shape* shape);
+
+    void bringToFront(Shape* shape);
 };
 
 #endif
