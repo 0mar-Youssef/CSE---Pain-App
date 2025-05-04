@@ -73,7 +73,6 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 
 void Application::onCanvasMouseUp(bobcat::Widget* sender, float mx, float my) {
     canvas->endScribble();
-    selectedShape = canvas->getSelectedShape(mx, my);
 }
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
@@ -81,12 +80,10 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
 
     if (action == CLEAR) {
-        // selectedShape = nullptr;
         canvas->clear();
         canvas->redraw();
     }
     else if (action == UNDO) {
-        // selectedShape = nullptr;
         canvas->undo();
         canvas->redraw();
     }
@@ -96,6 +93,17 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     }
     else if (action == MINUS && selectedShape) {
         selectedShape->decreaseSize();
+        canvas->redraw();
+    }
+}
+
+void Application::onColorSelectorChange(bobcat::Widget* sender) {
+    Color color = colorSelector->getColor();
+
+    if (selectedShape) {
+        cout << "Update selected shape color" << endl;
+
+        selectedShape->setColor(color.getR(), color.getG(), color.getB());
         canvas->redraw();
     }
 }
@@ -120,5 +128,7 @@ Application::Application() {
     ON_MOUSE_UP(canvas, Application::onCanvasMouseUp);
     ON_DRAG(canvas, Application::onCanvasDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
+    ON_CHANGE(colorSelector, Application::onColorSelectorChange);
+    
     window->show();
 }

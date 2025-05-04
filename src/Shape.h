@@ -3,9 +3,11 @@
 
 #include <GL/freeglut.h>
 #include <GL/gl.h>
+#include "Color.h"
 
 // Abstract Data Type
 class Shape{
+    float r, g, b;
 
 public:
     // This function is now pure virtual
@@ -18,6 +20,12 @@ public:
     virtual void increaseSize() = 0;
 
     virtual void decreaseSize() = 0;
+
+    void setColor(float r, float g, float b) {
+        this->r = r;
+        this->g = g;
+        this->b = b;
+    }
 
 
     // Since Shape contains at least one pure virtual function

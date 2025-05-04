@@ -66,3 +66,4 @@ void Rectangle::decreaseSize() {
         height -= 0.4;
     }
 }
+

@@ -32,5 +32,11 @@ void Scribble::decreaseSize() {
 }
 
 bool Scribble::contains(float mx, float my) {
-    return false;
+
+    for (unsigned int i = 0; i < points.size(); i++) {
+        if (mx == points[i]->getX() && my == points[i]->getY()) {
+            return false;
+        }
+    }
+    return true;
 }

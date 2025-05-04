@@ -49,9 +49,6 @@ void Canvas::clear() {
         delete shapes[i];
     }
     shapes.clear();
-    
-
-
 }
 
 void Canvas::undo(){
@@ -75,7 +72,7 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
 
 // Increment from the top-down to select the shape that's "on top"
-    for (unsigned int i = shapes.size() - 1; i != 0; i--) {
+    for (int i = shapes.size() - 1; i > -1; i--) {
         if (shapes[i]->contains(mx, my)) {
             std::cout << "Clicked on shape[" << i << "]" << std::endl;
             selectedShape = shapes[i];

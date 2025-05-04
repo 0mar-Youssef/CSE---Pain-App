@@ -50,7 +50,6 @@ void Toolbar::onClick(bobcat::Widget* sender) {
 
     if (sender == pencilButton) {
         tool = PENCIL;
-        std::cout << "Pencil" << std::endl;
     }
     else if (sender == eraserButton) {
         tool = ERASER;
@@ -75,7 +74,6 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == mouseButton) {
         tool = MOUSE;
-        std::cout << "Mouse tool" << std::endl;
     } // else if (sender == resizeButton) {
     //     tool = RESIZE;
     // }
