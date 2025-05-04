@@ -1,6 +1,7 @@
 objects/
 bin/
 
+*.bak
 *.o
 app
 test
