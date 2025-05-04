@@ -39,6 +39,7 @@ void Canvas::updateScribble(float x, float y, float r, float g, float b, int siz
 
 void Canvas::endScribble() {
     if (curr) {
+        curr->createHitbox();
         shapes.push_back(curr);
         curr = nullptr;
     }
