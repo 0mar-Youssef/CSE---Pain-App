@@ -6,23 +6,27 @@
 #include "Enums.h"
 
 class ColorSelector : public bobcat::Group {
-    bobcat::Button* redButton;
-    bobcat::Button* orangeButton;
-    bobcat::Button* yellowButton;
-    bobcat::Button* greenButton;
-    bobcat::Button* blueButton;
-    bobcat::Button* indigoButton;
-    bobcat::Button* violetButton;
 
-    COLOR color;
-    void deselectAllColors();
-    void visualizeSelectedColor();
+    bobcat::FloatInput* redInput;
+    bobcat::FloatInput* greenInput;
+    bobcat::FloatInput* blueInput;
+    bobcat::Button* colorChanger;
+    bool colorPicker;
+
+    Color* color;
+
+    float r,g,b;
+
+    void inputChange(bobcat::Widget* sender);
     void onClick(bobcat::Widget* sender);
+    bool colorChange();
+
 
 public:
     ColorSelector(int x, int y, int w, int h);
 
     Color getColor() const;
+
 };
 
 #endif
