@@ -33,12 +33,32 @@ void Scribble::draw(){
     std::cout << "yMin: " << yMin << std::endl;
 }
 
+void Scribble::updateHitbox(){
+    for(unsigned int i = 0; i < points.size(); i++){
+        // Creating width
+        if (points[i]->getX() > xMax) xMax = points[i]->getX();
+        if (points[i]->getX() < xMin) xMin = points[i]->getX();
+
+        // // Creating length
+        if (points[i]->getY() > yMax) yMax = points[i]->getY();
+        if (points[i]->getY() < yMin) yMin = points[i]->getY();
+    }
+
+    createHitbox();
+}
+
 void Scribble::createHitbox() {
     this->width = xMax - xMin;
     this->length = yMax - yMin;
 
     std::cout << "Width: " << width << std::endl;
     std::cout << "Length: " << length << std::endl;
+}
+
+void Scribble::setColor(float r, float g, float b){
+    for(unsigned int i = 0; i < points.size(); i++){
+        points[i]->changePointColor(r, g, b);
+    }
 }
 
 Scribble::~Scribble(){
@@ -53,6 +73,8 @@ void Scribble::move(float dx, float dy) {
     for (unsigned int i = 0; i < points.size(); i++) {
         points[i]->move(dx, dy);
     }
+
+    updateHitbox();
 }
 
 void Scribble::increaseSize() {

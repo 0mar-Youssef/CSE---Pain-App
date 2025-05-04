@@ -17,6 +17,10 @@ class Scribble: public Shape {
 
 public:
 
+    void setColor(float r, float g, float b);
+
+    void updateHitbox();
+
     void addPoint(float x, float y, float r, float g, float b, int size);
 
     void draw();
