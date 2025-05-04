@@ -42,6 +42,7 @@ void Polygon::draw() {
     glEnd();
 }
 bool Polygon::contains(float mx, float my) {
+    // Who implemented this?
     return mx >= x - sides/2 && mx <= x + sides/2 && my >= y - length/2 && my <= y + length/2;
 }
 
@@ -50,12 +51,21 @@ void Polygon::move(float dx, float dy) {
     y += dy;
 }
 
-void Polygon::resize(float mx, float my) {
-    float dx = mx - x;
-    float dy = my - y;
-    float newLength = sqrt(dx * dx + dy * dy);
-    if (newLength > 0.01f) { // avoid zero raidus by telling program to treat 0.01f as a float not a double cause
-                             // raidus is a float
-        length = newLength;
+// void Polygon::resize(float mx, float my) {
+//     float dx = mx - x;
+//     float dy = my - y;
+//     float newLength = sqrt(dx * dx + dy * dy);
+//     if (newLength > 0.01f) { // avoid zero raidus by telling program to treat 0.01f as a float not a double cause
+//                              // raidus is a float
+//         length = newLength;
+//     }
+// }
+
+void Polygon::increaseSize() {
+    length += 0.225;
+}
+void Polygon::decreaseSize() {
+    if (length > 0.225) {
+        length -= 0.225;
     }
 }

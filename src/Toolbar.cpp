@@ -13,7 +13,7 @@ void Toolbar::deselectAllTools() {
     polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
     mouseButton->color(FL_BACKGROUND_COLOR);
-    resizeButton->color(FL_BACKGROUND_COLOR);
+    // resizeButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
@@ -38,9 +38,9 @@ void Toolbar::visualizeSelectedTool() {
     else if (tool == MOUSE) {
         mouseButton->color(FL_WHITE);
     }
-    else if (tool == RESIZE) {
-        resizeButton->color(FL_WHITE);
-    } 
+    // else if (tool == RESIZE) {
+    //     resizeButton->color(FL_WHITE);
+    // } 
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -76,8 +76,14 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == mouseButton) {
         tool = MOUSE;
         std::cout << "Mouse tool" << std::endl;
-    } else if (sender == resizeButton) {
-        tool = RESIZE;
+    } // else if (sender == resizeButton) {
+    //     tool = RESIZE;
+    // }
+    else if (sender == plusButton) {
+        action = PLUS;
+    }
+    else if (sender == minusButton) {
+        action = MINUS;
     }
 
     if (onChangeCb) {
@@ -106,8 +112,11 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
     clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
     mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
-    resizeButton = new Image(x, y + 450, 50, 50, "./assets/resize.png");
-    
+    // resizeButton = new Image(x, y + 450, 50, 50, "./assets/resize.png");
+    plusButton = new Image(x, y + 450, 50, 50, "./assets/plus.png");
+    minusButton = new Image(x, y + 500, 50, 50, "./assets/minus.png");
+
+
     tool = PENCIL;
     action = NONE;
 
@@ -120,7 +129,9 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
     mouseButton->box(FL_BORDER_BOX);
-    resizeButton->box(FL_BORDER_BOX);
+    // resizeButton->box(FL_BORDER_BOX);
+    plusButton->box(FL_BORDER_BOX);
+    minusButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -133,5 +144,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
-    ON_CLICK(resizeButton, Toolbar::onClick);
+    ON_CLICK(plusButton, Toolbar::onClick);
+    ON_CLICK(minusButton, Toolbar::onClick);
+    // ON_CLICK(resizeButton, Toolbar::onClick);
 }

@@ -33,7 +33,7 @@ void Circle::draw() {
 }
 
 bool Circle::contains(float mx, float my) {
-    return mx >= x - radius/2 && mx <= x + radius/2 && my >= y - radius/2 && my <= y + radius/2;
+    return mx >= x - radius && mx <= x + radius && my >= y - radius && my <= y + radius;
 }
 
 void Circle::move(float dx, float dy) {
@@ -41,12 +41,21 @@ void Circle::move(float dx, float dy) {
     y += dy;
 }
 
-void Circle::resize(float mx, float my) {
-    float dx = mx - x;
-    float dy = my - y;
-    float newRadius = sqrt(dx * dx + dy * dy);
-    if (newRadius > 0.01f) { // avoid zero raidus by telling program to treat 0.01f as a float not a double cause
-                             // raidus is a float
-        radius = newRadius;
+// void Circle::resize(float mx, float my) {
+//     float dx = mx - x;
+//     float dy = my - y;
+//     float newRadius = sqrt(dx * dx + dy * dy);
+//     if (newRadius > 0.01f) { // avoid zero raidus by telling program to treat 0.01f as a float not a double cause
+//                              // raidus is a float
+//         radius = newRadius;
+//     }
+// }
+
+void Circle::increaseSize() {
+    radius += 0.2;
+}
+void Circle::decreaseSize() {
+    if (radius > 0.2) {
+        radius -= 0.2;
     }
 }

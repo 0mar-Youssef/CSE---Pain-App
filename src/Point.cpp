@@ -67,6 +67,11 @@ void Point::move(float dx, float dy) {
     y += dy;
 }
 
-void Point::resize(float mx, float my) {
-    return;
+void Point::increaseSize() {
+    size += 1;
+}
+void Point::decreaseSize() {
+    if (size > 1) {
+        size -= 1;
+    } 
 }

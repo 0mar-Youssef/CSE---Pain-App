@@ -24,9 +24,11 @@ void Scribble::move(float dx, float dy) {
     }
 }
 
-void Scribble::resize (float mx, float my) {
-    x += mx;
-    y += my;
+void Scribble::increaseSize() {
+    return;
+}
+void Scribble::decreaseSize() {
+    return;
 }
 
 bool Scribble::contains(float mx, float my) {

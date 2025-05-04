@@ -17,7 +17,8 @@ public:
     void draw();
     bool contains(float mx, float my);
     void move(float dx, float dy);
-    void resize(float mx, float my);
+    void increaseSize();
+    void decreaseSize();
 };
 
 #endif

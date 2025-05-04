@@ -27,7 +27,8 @@ public:
     int getSize() const;
 
     bool contains(float mx, float my);
-    void resize(float mx, float my);
+    void increaseSize();
+    void decreaseSize();
 
     void move(float dx, float dy);
 };

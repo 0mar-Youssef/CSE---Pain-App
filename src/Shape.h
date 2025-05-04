@@ -15,7 +15,9 @@ public:
 
     virtual void move(float dx, float dy) = 0;
 
-    virtual void resize(float mx, float my) = 0;
+    virtual void increaseSize() = 0;
+
+    virtual void decreaseSize() = 0;
 
 
     // Since Shape contains at least one pure virtual function

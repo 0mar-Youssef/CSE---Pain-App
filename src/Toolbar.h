@@ -19,7 +19,7 @@ class Toolbar : public bobcat::Group {
     bobcat::Image* bringToFrontButton;
     bobcat::Image* sendToBackButton;
     bobcat::Image* mouseButton;
-    bobcat::Image* resizeButton;
+    //bobcat::Image* resizeButton;
 
 
     TOOL tool;
