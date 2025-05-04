@@ -7,6 +7,41 @@ Canvas::Canvas(int x, int y, int w, int h) : Canvas_(x, y, w, h) {
     curr = nullptr;
 }
 
+void Canvas::bringToFront(Shape* shape) {
+    if (!shape) return;
+
+    for(size_t i = 0; i < shapes.size(); i++) {
+    if (shapes[i] == shape) {
+        if (i < shapes.size() - 1) {
+            Shape* temp = shapes[i];
+
+            for (size_t j = i; j < shapes.size() - 1; j++) {
+                shapes[j] = shapes[j + 1];
+            }
+            shapes[shapes.size() - 1] = temp;
+        }
+        break;
+        }
+    }   
+}
+
+void Canvas::sendToBack(Shape* shape) {
+    if(!shape) return;
+
+    for (size_t i = 0; i < shapes.size(); i++) {
+        if (shapes[i] == shape) {
+            if (i > 0) {
+                Shape* temp = shapes[i];
+                for (size_t j = i; j > 0; j--) {
+                    shapes[j] = shapes[j -1];
+                }
+                shapes[0] = temp;
+            }
+            break;
+        }
+    }
+}
+
 void Canvas::addPoint(float x, float y, float r, float g, float b, int size) {
     shapes.push_back(new Point(x, y, r, g, b, size));
 }
@@ -74,7 +109,7 @@ void Canvas::render() {
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
 
-    for (unsigned int i = 0; i < shapes.size(); i++) {
+    for (int i = shapes.size() - 1;i >= 0; i--) {
         // ask every shape if we clicked on it
         if (shapes[i]->contains(mx, my)) {
             std::cout << "Clicked on shape[" << i << "]" << std::endl;
@@ -82,7 +117,6 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
             break;
         }
     }
-
     if (selectedShape == nullptr) {
         std::cout << "No selected shape" << std::endl;
     }

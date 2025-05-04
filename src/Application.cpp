@@ -46,6 +46,20 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
     else if (tool == RESIZE) {
         selectedShape = canvas->getSelectedShape(mx, my);
     }
+    else if (tool == UP) {
+        selectedShape = canvas->getSelectedShape(mx, my);
+        if (selectedShape) {
+            canvas->bringToFront(selectedShape);
+            canvas->redraw();
+        }
+    }
+    else if (tool == DOWN) {
+        selectedShape = canvas->getSelectedShape(mx, my);
+        if (selectedShape) {
+            canvas->sendToBack(selectedShape);
+            canvas->redraw();
+        }
+    }
 
 }
 
@@ -97,11 +111,11 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(100, 100, 400, 500, "Pain App");
+    window = new Window(100, 100, 600, 600, "Pain App");
 
-    toolbar = new Toolbar(0, 0, 50, 500);
-    canvas = new Canvas(50, 0, 350, 450);
-    colorSelector = new ColorSelector(50, 350, 450, 50);
+    toolbar = new Toolbar(0, 0, 50, 600);
+    canvas = new Canvas(50, 0, 500, 500);
+    colorSelector = new ColorSelector(50, 500, 350, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);

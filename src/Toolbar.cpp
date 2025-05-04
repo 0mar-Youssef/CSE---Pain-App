@@ -14,6 +14,8 @@ void Toolbar::deselectAllTools() {
     undoButton->color(FL_BACKGROUND_COLOR);
     mouseButton->color(FL_BACKGROUND_COLOR);
     resizeButton->color(FL_BACKGROUND_COLOR);
+    bringToFrontButton->color(FL_BACKGROUND_COLOR);
+    sendToBackButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
@@ -41,6 +43,12 @@ void Toolbar::visualizeSelectedTool() {
     else if (tool == RESIZE) {
         resizeButton->color(FL_WHITE);
     } 
+    else if (tool == UP) {
+        bringToFrontButton->color(FL_WHITE);
+    }
+    else if (tool == DOWN) {
+        sendToBackButton->color(FL_WHITE);
+    }
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -76,8 +84,15 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == mouseButton) {
         tool = MOUSE;
         std::cout << "Mouse tool" << std::endl;
-    } else if (sender == resizeButton) {
+    } 
+    else if (sender == resizeButton) {
         tool = RESIZE;
+    }
+    else if (sender == bringToFrontButton) {
+        tool = UP;
+    }
+    else if (sender == sendToBackButton) {
+        tool = DOWN;
     }
 
     if (onChangeCb) {
@@ -107,6 +122,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
     mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
     resizeButton = new Image(x, y + 450, 50, 50, "./assets/resize.png");
+    bringToFrontButton = new Image(x, y + 500, 50, 50, "./assets/bring-to-front.png");
+    sendToBackButton = new Image(x, y + 550, 50, 50, "./assets/send-to-back.png");
     
     tool = PENCIL;
     action = NONE;
@@ -121,6 +138,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     clearButton->box(FL_BORDER_BOX);
     mouseButton->box(FL_BORDER_BOX);
     resizeButton->box(FL_BORDER_BOX);
+    bringToFrontButton->box(FL_BORDER_BOX);
+    sendToBackButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -134,4 +153,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
     ON_CLICK(resizeButton, Toolbar::onClick);
+    ON_CLICK(sendToBackButton, Toolbar::onClick);
+    ON_CLICK(bringToFrontButton, Toolbar::onClick);
 }
