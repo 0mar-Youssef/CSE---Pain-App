@@ -5,12 +5,11 @@ Update this README.md as we make commits/pushes to resepctive branches OR PLEASE
 - [X] Eraser tool
 - [X] Clear screen tool
 - [X] RGB color picker
+    - FIX FOR SCRIBBLE
 - [X] 4 shape tools
 - [X] Selector tool
-    - Does not work on scribble
-    - Functions requiring selector won't work for scribble (below)
 - [X] Resize selected shape
 - [X] Change color of selected shape/ scribble
 - [X] Move selected shape/scribble by dragging
-- [ ] Bring selected shape/scribble to the front
-- [ ] Send selected shape/scribble to the back
+- [X] Bring selected shape/scribble to the front
+- [X] Send selected shape/scribble to the back

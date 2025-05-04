@@ -39,6 +39,7 @@ void Canvas::updateScribble(float x, float y, float r, float g, float b, int siz
 
 void Canvas::endScribble() {
     if (curr) {
+        curr->createHitbox();
         shapes.push_back(curr);
         curr = nullptr;
     }
@@ -79,10 +80,44 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
             break;
         }
     }
-
     if (selectedShape == nullptr) {
         std::cout << "No selected shape" << std::endl;
     }
 
     return selectedShape;
+}
+
+void Canvas::bringToFront(Shape* shape) {
+    if (!shape) return;
+
+    for(size_t i = 0; i < shapes.size(); i++) {
+    if (shapes[i] == shape) {
+        if (i < shapes.size() - 1) {
+            Shape* temp = shapes[i];
+
+            for (size_t j = i; j < shapes.size() - 1; j++) {
+                shapes[j] = shapes[j + 1];
+            }
+            shapes[shapes.size() - 1] = temp;
+        }
+        break;
+        }
+    }   
+}
+
+void Canvas::sendToBack(Shape* shape) {
+    if(!shape) return;
+
+    for (size_t i = 0; i < shapes.size(); i++) {
+        if (shapes[i] == shape) {
+            if (i > 0) {
+                Shape* temp = shapes[i];
+                for (size_t j = i; j > 0; j--) {
+                    shapes[j] = shapes[j -1];
+                }
+                shapes[0] = temp;
+            }
+            break;
+        }
+    }
 }

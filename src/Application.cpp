@@ -94,14 +94,23 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         selectedShape->decreaseSize();
         canvas->redraw();
     }
+    else if (action == UP && selectedShape) {
+        cout << "Bringing it forward" << endl;
+        canvas->bringToFront(selectedShape);
+        canvas->redraw();
+    }
+    else if (action == DOWN && selectedShape) {
+        cout << "Bringing it back" << endl;
+        canvas->sendToBack(selectedShape);
+        canvas->redraw();
+    }
 }
+
 
 void Application::onColorSelectorChange(bobcat::Widget* sender) {
     Color color = colorSelector->getColor();
 
     if (selectedShape) {
-        cout << "Update selected shape color" << endl;
-
         selectedShape->setColor(color.getR(), color.getG(), color.getB());
         canvas->redraw();
     }
@@ -109,13 +118,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
 
 
 Application::Application() {
-    window = new Window(100, 100, 600, 600, "Pain App");
+    window = new Window(100, 100, 650, 650, "Pain App");
 
     selectedShape = nullptr;
 
-    toolbar = new Toolbar(0, 0, 50, 600);
-    canvas = new Canvas(50, 0, 500, 500);
-    colorSelector = new ColorSelector(50, 500, 350, 50);
+    toolbar = new Toolbar(0, 0, 50, 650);
+    canvas = new Canvas(50, 0, 600, 600);
+    colorSelector = new ColorSelector(50, 600, 350, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);

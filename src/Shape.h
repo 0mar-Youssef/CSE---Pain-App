@@ -22,7 +22,7 @@ public:
 
     virtual void decreaseSize() = 0;
 
-    void setColor(float r, float g, float b) {
+    virtual void setColor(float r, float g, float b) {
         this->r = r;
         this->g = g;
         this->b = b;

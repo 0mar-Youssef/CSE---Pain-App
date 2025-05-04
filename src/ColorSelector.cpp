@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <bobcat_ui/button.h>
 #include <cstddef>
+#include <math.h>
 using namespace bobcat;
 
 Color ColorSelector::getColor() const{
