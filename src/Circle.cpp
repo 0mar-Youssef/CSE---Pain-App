@@ -52,10 +52,12 @@ void Circle::move(float dx, float dy) {
 // }
 
 void Circle::increaseSize() {
-    radius += 0.2;
+    radius += 0.1;
 }
 void Circle::decreaseSize() {
-    if (radius > 0.2) {
-        radius -= 0.2;
+    // Threshold is set slightly higher due to floating float precision
+    // And to prevent the shape from going to oblivion
+    if (radius > 0.11) {
+        radius -= 0.1;
     }
 }

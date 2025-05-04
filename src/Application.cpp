@@ -1,6 +1,5 @@
 #include "Application.h"
 #include "Enums.h"
-#include <bobcat_ui/bobcat_ui.h>
 
 using namespace bobcat;
 using namespace std;
@@ -108,8 +107,11 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
     }
 }
 
+
 Application::Application() {
-    window = new Window(100, 100, 550, 550, "Pain App");
+    window = new Window(100, 100, 600, 600, "Pain App");
+
+    selectedShape = nullptr;
 
     toolbar = new Toolbar(0, 0, 50, 600);
     canvas = new Canvas(50, 0, 500, 500);
@@ -120,7 +122,7 @@ Application::Application() {
     window->add(canvas);
     window->add(colorSelector);
 
-    selectedShape = nullptr;
+    
     dragStartX = 0.0;
     dragStartY = 0.0;
 

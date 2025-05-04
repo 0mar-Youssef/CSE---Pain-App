@@ -57,13 +57,15 @@ void Rectangle::move(float dx, float dy) {
 // };
 
 void Rectangle::increaseSize() {
-    width += 0.4;
-    height += 0.4;
+    width += 0.1;
+    height += 0.1;
 }
 void Rectangle::decreaseSize() {
-    if (width > 0.4 && height > 0.4) {
-        width -= 0.4;
-        height -= 0.4;
+    // Threshold is set slightly higher due to floating float precision
+    // And to prevent the shape from going to oblivion
+    if (width > 0.11 && height > 0.11) {
+        width -= 0.1;
+        height -= 0.1;
     }
 }
 

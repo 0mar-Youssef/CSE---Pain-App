@@ -43,7 +43,7 @@ void Polygon::draw() {
 }
 bool Polygon::contains(float mx, float my) {
     // Who implemented this?
-    return mx >= x - sides/2 && mx <= x + sides/2 && my >= y - length/2 && my <= y + length/2;
+    return mx >= x - length/2 && mx <= x + length/2 && my >= y - length/2 && my <= y + length/2;
 }
 
 void Polygon::move(float dx, float dy) {
@@ -62,10 +62,12 @@ void Polygon::move(float dx, float dy) {
 // }
 
 void Polygon::increaseSize() {
-    length += 0.225;
+    length += 0.1125;
 }
 void Polygon::decreaseSize() {
-    if (length > 0.225) {
-        length -= 0.225;
+    // Threshold is set slightly higher due to floating float precision
+    // And to prevent the shape from going to oblivion
+    if (length > 0.12) {
+        length -= 0.1125;
     }
 }

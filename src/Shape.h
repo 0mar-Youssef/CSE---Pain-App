@@ -7,6 +7,7 @@
 
 // Abstract Data Type
 class Shape{
+protected:
     float r, g, b;
 
 public:

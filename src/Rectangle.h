@@ -8,9 +8,7 @@ class Rectangle : public Shape {
     float y;
     float width;
     float height;
-    float r;
-    float g;
-    float b;
+
 
 public:
     Rectangle();

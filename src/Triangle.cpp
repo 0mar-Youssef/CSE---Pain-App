@@ -53,13 +53,15 @@ void Triangle::move(float dx, float dy){
 // }
 
 void Triangle::increaseSize() {
-    base += 0.4;
-    height += 0.4;
+    base += 0.1;
+    height += 0.1;
 }
 
 void Triangle::decreaseSize() {
-    if (base > 0.4 && height > 0.4) {
-        base -= 0.4;
-        height -=0.4;
+    // Threshold is set slightly higher due to floating float precision
+    // And to prevent the shape from going to oblivion
+    if (base > 0.11 && height > 0.11) {
+        base -= 0.1;
+        height -=0.1;
     }
 }

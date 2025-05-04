@@ -1,7 +1,5 @@
 #include "Toolbar.h"
-#include "Enums.h"
 #include <FL/Enumerations.H>
-#include <bobcat_ui/bobcat_ui.h>
 using namespace bobcat;
 
 void Toolbar::deselectAllTools() {

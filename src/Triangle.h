@@ -8,9 +8,6 @@ class Triangle : public Shape {
     float y;
     float base;
     float height;
-    float r;
-    float g;
-    float b;
 
 public:
     Triangle();

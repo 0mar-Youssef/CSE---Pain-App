@@ -6,9 +6,6 @@
 class Point: public Shape {
     float x;
     float y;
-    float r;
-    float g;
-    float b;
     int size;
 
 public:
