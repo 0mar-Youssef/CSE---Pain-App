@@ -34,6 +34,11 @@ void Scribble::draw(){
 }
 
 void Scribble::updateHitbox(){
+    if(points.empty()) return;
+
+    xMax = xMin = points[0]->getX();
+    yMax = yMin = points[0]->getY();
+
     for(unsigned int i = 0; i < points.size(); i++){
         // Creating width
         if (points[i]->getX() > xMax) xMax = points[i]->getX();
@@ -50,6 +55,9 @@ void Scribble::updateHitbox(){
 void Scribble::createHitbox() {
     this->width = xMax - xMin;
     this->length = yMax - yMin;
+
+    x = (xMin + xMax)/2.0f;
+    y = (yMin + yMax)/2.0f;
 
     std::cout << "Width: " << width << std::endl;
     std::cout << "Length: " << length << std::endl;
