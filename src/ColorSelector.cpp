@@ -79,7 +79,7 @@ ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     redInput = new FloatInput(x +20, y+20, 50, 20, "Red");
     blueInput = new FloatInput(x +80, y+20, 50, 20, "Blue");
     greenInput = new FloatInput(x + 140, y+20, 50, 20, "Green");
-    colorPreview = new Fl_Box(x+ 200, y + 1, 49, 49, "E");
+    colorPreview = new Fl_Box(x+ 200, y + 1, 49, 49, "");
     colorChanger = new Button(x + 260, y +5, 40, 40,"");
     colorPreview->box(FL_FLAT_BOX);
     colorPreview->color(fl_rgb_color(0, 0 ,0));
