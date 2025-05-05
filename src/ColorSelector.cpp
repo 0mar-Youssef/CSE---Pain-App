@@ -66,7 +66,7 @@ ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     redInput = new FloatInput(x + 20, y + 20, 50, 20, "Red");
     blueInput = new FloatInput(x + 80, y + 20, 50, 20, "Blue");
     greenInput = new FloatInput(x + 140, y + 20, 50, 20, "Green");
-    colorPreview = new Fl_Box(x + 200, y + 1, 49, 49, "E");
+    colorPreview = new Fl_Box(x + 200, y, 50, 50, "");
 
 // Fix this, it initializes with zeros
     redInput->value(r);
