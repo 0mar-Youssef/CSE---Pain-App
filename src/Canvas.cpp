@@ -87,6 +87,15 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
     return selectedShape;
 }
 
+void Canvas::eraseShape(float mx, float my) {
+
+    for (int i = shapes.size() - 1; i > -1; i--) {
+        if (shapes[i]->contains(mx, my)) {
+            shapes.erase(shapes.begin() + i);
+        }
+    }
+}
+
 void Canvas::bringToFront(Shape* shape) {
     if (!shape) return;
 

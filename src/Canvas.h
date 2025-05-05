@@ -42,6 +42,8 @@ public:
 
     Shape* getSelectedShape(float mx, float my);
 
+    void eraseShape(float mx, float my);
+
     void sendToBack(Shape* shape);
 
     void bringToFront(Shape* shape);
