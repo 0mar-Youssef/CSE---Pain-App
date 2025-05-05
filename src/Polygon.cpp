@@ -43,7 +43,7 @@ void Polygon::draw() {
 }
 bool Polygon::contains(float mx, float my) {
     // Who implemented this?
-    return mx >= x - length/2 && mx <= x + length/2 && my >= y - length/2 && my <= y + length/2;
+    return mx >= x - length && mx <= x + length && my >= y - length && my <= y + length;
 }
 
 void Polygon::move(float dx, float dy) {

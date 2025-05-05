@@ -65,7 +65,7 @@ void Scribble::createHitbox() {
 
 void Scribble::setColor(float r, float g, float b){
     for(unsigned int i = 0; i < points.size(); i++){
-        points[i]->changePointColor(r, g, b);
+        points[i]->setColor(r, g, b);
     }
 }
 
@@ -86,10 +86,14 @@ void Scribble::move(float dx, float dy) {
 }
 
 void Scribble::increaseSize() {
-    return;
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->increaseSize();
+    }
 }
 void Scribble::decreaseSize() {
-    return;
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->decreaseSize();
+    }
 }
 
 bool Scribble::contains(float mx, float my) {

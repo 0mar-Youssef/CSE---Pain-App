@@ -25,12 +25,6 @@ Point::Point(float x, float y, float r, float g, float b, int size) : Point(x, y
     this->size = size;
 }
 
-void Point::changePointColor(float r, float g, float b){
-    this->r = r;
-    this->g = g;
-    this->b = b;
-}
-
 void Point::draw() {
     glColor3f(r, g, b);
     glPointSize(size);
@@ -77,7 +71,7 @@ void Point::increaseSize() {
     size += 1;
 }
 void Point::decreaseSize() {
-    if (size > 1) {
+    if (size > 1.1) {
         size -= 1;
     } 
 }

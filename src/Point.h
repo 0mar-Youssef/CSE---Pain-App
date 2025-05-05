@@ -26,7 +26,6 @@ public:
     bool contains(float mx, float my);
     void increaseSize();
     void decreaseSize();
-    void changePointColor(float r, float g, float b);
 
     void move(float dx, float dy);
 };

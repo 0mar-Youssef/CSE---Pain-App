@@ -124,7 +124,7 @@ Application::Application() {
 
     toolbar = new Toolbar(0, 0, 50, 650);
     canvas = new Canvas(50, 0, 600, 600);
-    colorSelector = new ColorSelector(50, 600, 350, 50);
+    colorSelector = new ColorSelector(50, 600, 550, 50);
     colorSelector->box(FL_BORDER_BOX);
 
     window->add(toolbar);
